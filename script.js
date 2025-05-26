@@ -78,7 +78,7 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
     <div class="exp-bar">
       <div class="exp-fill" style="width: ${progreso}%;"></div>
     </div>
-    <div>XP: ${xpActualNivel.toFixed(0)} / ${xpParaSiguienteNivel}</div>
+    <div>XP: ${xpActualNivel.toFixed(1)} / ${xpParaSiguienteNivel}</div>
   `;
 
   grid.appendChild(tarjeta);
