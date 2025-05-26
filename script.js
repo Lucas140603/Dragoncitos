@@ -24,8 +24,8 @@ const alumnos = [
   { nombre: "Julieta Santos", xp: 3 },
   { nombre: "Guzman Silva", xp: 0 },
   { nombre: "Axel Silva", xp: 1 },
-  { nombre: "Tiago Sosa", xp: 0.5 },
-  { nombre: "Julieta Torres", xp: 1 },
+  { nombre: "Tiago Sosa", xp: 1 },
+  { nombre: "Julieta Torres", xp: 0.5 },
   { nombre: "Fernando Trentini", xp: 0 },
   { nombre: "Sofia Viera", xp: 2 }
 ];
