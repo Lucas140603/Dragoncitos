@@ -23,6 +23,9 @@ body {
 .dragon-img {
   width: 100px;
   height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .exp-bar {
@@ -41,4 +44,23 @@ body {
 .level {
   font-weight: bold;
   margin: 5px 0;
+}
+.tabla-xp {
+  margin: 10px auto 30px auto;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.tabla-xp th,
+.tabla-xp td {
+  border: 1px solid #999;
+  padding: 8px 12px;
+}
+
+.tabla-xp th {
+  background-color: #e0f0ff;
+}
+
+.tabla-xp td {
+  background-color: #fdfdfd;
 }
