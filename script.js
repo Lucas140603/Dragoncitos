@@ -30,7 +30,7 @@ const alumnos = {
   "Sofia Viera": { xp: 0, mascota: "d" }
 };
 
-// Función para calcular nivel con suma triangular
+// Función para calcular nivel con suma triangular (1 + 2 + 3 + ...)
 function calcularNivel(xp) {
   let nivel = 0;
   while (((nivel + 1) * (nivel + 2)) / 2 <= xp) {
@@ -47,7 +47,7 @@ function progresoNivel(xp) {
   return ((xp - xpAnterior) / (xpSiguiente - xpAnterior)) * 100;
 }
 
-// Función para seleccionar imagen de dragón según nivel
+// Función para seleccionar imagen de mascota según tipo y nivel
 function getImagenMascota(mascota, nivel) {
   let etapa = "huevo";
   if (nivel >= 8) etapa = "adulto";
@@ -56,21 +56,24 @@ function getImagenMascota(mascota, nivel) {
   return `${mascota}_${etapa}.png`;
 }
 
+// Mostrar todos los alumnos en la cuadrícula
 const grid = document.getElementById("dragon-grid");
 
-alumnos.forEach(alumno => {
-  const nivel = calcularNivel(alumno.xp);
-  const progreso = progresoNivel(alumno.xp);
+Object.entries(alumnos).forEach(([nombre, datos]) => {
+  const nivel = calcularNivel(datos.xp);
+  const progreso = progresoNivel(datos.xp);
 
-  const xpActualNivel = alumno.xp - (nivel * (nivel + 1)) / 2;
+  const xpActualNivel = datos.xp - (nivel * (nivel + 1)) / 2;
   const xpParaSiguienteNivel = ((nivel + 1) * (nivel + 2)) / 2 - (nivel * (nivel + 1)) / 2;
 
   const tarjeta = document.createElement("div");
   tarjeta.className = "dragon-card";
 
+  const imagen = getImagenMascota(datos.mascota, nivel);
+
   tarjeta.innerHTML = `
-    <div><strong>${alumno.nombre}</strong></div>
-    <img class="dragon-img" src="${getImagenDragon(nivel)}" alt="Dragón">
+    <div><strong>${nombre}</strong></div>
+    <img class="dragon-img" src="${imagen}" alt="Mascota">
     <div class="level">Nivel: ${nivel}</div>
     <div class="exp-bar">
       <div class="exp-fill" style="width: ${progreso}%;"></div>
