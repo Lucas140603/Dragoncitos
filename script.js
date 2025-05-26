@@ -16,7 +16,7 @@ const alumnos = {
   "Benjamin Noble": { xp: 4.5, mascota: "d" },
   "Gastón Olhagaray": { xp: 0, mascota: "d" },
   "Anastasia Olivera": { xp: 4.5, mascota: "d" },
-  "Evelin Pereira": { xp: 3, mascota: "d" },
+  "Evelin Pereira": { xp: 3, mascota: "u" },
   "Isa Pintos": { xp: 1.5, mascota: "d" },
   "Joaquin Rodriguez": { xp: 1.5, mascota: "d" },
   "Clara Romero": { xp: 1.5, mascota: "f" },
