@@ -1,34 +1,34 @@
 // Lista de estudiantes y su experiencia actual
-const alumnos = [
-  { nombre: "Josefina Alves", xp: 3 },
-  { nombre: "Yasmin Benítez", xp: 2 },
-  { nombre: "Julieta Cuadrado", xp: 2 },
-  { nombre: "Lucas Duarte", xp: 0 },
-  { nombre: "Mahia Echerán", xp: 3 },
-  { nombre: "Facundo Gómez", xp: 0.5 },
-  { nombre: "Uma Gonzalez", xp: 2 },
-  { nombre: "Valentino Gordano", xp: 2 },
-  { nombre: "Juan Leles", xp: 2 },
-  { nombre: "Esteban Marins", xp: 1 },
-  { nombre: "Bautista Medina", xp: 1 },
-  { nombre: "Aldana Montes", xp: 2 },
-  { nombre: "Mateo Nievas", xp: 1 },
-  { nombre: "Tadeo Noble", xp: 3 },
-  { nombre: "Gastón Olhagaray", xp: 0 },
-  { nombre: "Anastasia Olivera", xp: 3 },
-  { nombre: "Evelin Pereira", xp: 2 },
-  { nombre: "Isa Pintos", xp: 1 },
-  { nombre: "Joaquin Rodriguez", xp: 1 },
-  { nombre: "Clara Romero", xp: 1 },
-  { nombre: "Luana Santestevan", xp: 2 },
-  { nombre: "Julieta Santos", xp: 3 },
-  { nombre: "Guzman Silva", xp: 0 },
-  { nombre: "Axel Silva", xp: 1 },
-  { nombre: "Tiago Sosa", xp: 1 },
-  { nombre: "Julieta Torres", xp: 0.5 },
-  { nombre: "Fernando Trentini", xp: 0 },
-  { nombre: "Sofia Viera", xp: 2 }
-];
+const alumnos = {
+  "Josefina Alves": { xp: 0, mascota: "d" },
+  "Yasmin Benítez": { xp: 0, mascota: "d" },
+  "Julieta Cuadrado": { xp: 0, mascota: "d" },
+  "Lucas Duarte": { xp: 0, mascota: "d" },
+  "Mahia Echerán": { xp: 0, mascota: "d" },
+  "Facundo Gómez": { xp: 0, mascota: "d" },
+  "Uma Gonzalez": { xp: 0, mascota: "d" },
+  "Valentino Gordano": { xp: 0, mascota: "d" },
+  "Juan Leles": { xp: 0, mascota: "d" },
+  "Esteban Marins": { xp: 0, mascota: "d" },
+  "Bautista Medina": { xp: 0, mascota: "d" },
+  "Aldana Montes": { xp: 0, mascota: "d" },
+  "Mateo Nievas": { xp: 0, mascota: "d" },
+  "Benjamin Noble": { xp: 0, mascota: "d" },
+  "Gastón Olhagaray": { xp: 0, mascota: "d" },
+  "Anastasia Olivera": { xp: 0, mascota: "d" },
+  "Evelin Pereira": { xp: 0, mascota: "d" },
+  "Isa Pintos": { xp: 0, mascota: "d" },
+  "Joaquin Rodriguez": { xp: 0, mascota: "d" },
+  "Clara Romero": { xp: 0, mascota: "d" },
+  "Luana Santestevan": { xp: 0, mascota: "d" },
+  "Julieta Santos": { xp: 0, mascota: "d" },
+  "Guzman Silva": { xp: 0, mascota: "d" },
+  "Axel Silva": { xp: 0, mascota: "d" },
+  "Tiago Sosa": { xp: 0, mascota: "d" },
+  "Julieta Torres": { xp: 0, mascota: "d" },
+  "Fernando Trentini": { xp: 0, mascota: "d" },
+  "Sofia Viera": { xp: 0, mascota: "d" }
+};
 
 // Función para calcular nivel con suma triangular
 function calcularNivel(xp) {
@@ -48,11 +48,12 @@ function progresoNivel(xp) {
 }
 
 // Función para seleccionar imagen de dragón según nivel
-function getImagenDragon(nivel) {
-  if (nivel < 1) return "dragon_huevo.png";
-  else if (nivel < 4) return "dragon_bebe.png";
-  else if (nivel < 8) return "dragon_adolescente.png"
-  else return "dragon_adulto.png";
+function getImagenMascota(mascota, nivel) {
+  let etapa = "huevo";
+  if (nivel >= 8) etapa = "adulto";
+  else if (nivel >= 7) etapa = "joven";
+  else if (nivel >= 3) etapa = "bebe";
+  return `${mascota}_${etapa}.png`;
 }
 
 const grid = document.getElementById("dragon-grid");
