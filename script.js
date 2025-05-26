@@ -8,7 +8,7 @@ const alumnos = {
   "Facundo Gómez": { xp: 0.5, mascota: "d" },
   "Uma Gonzalez": { xp: 3, mascota: "d" },
   "Valentino Gordano": { xp: 3, mascota: "d" },
-  "Juan Leles": { xp: 3, mascota: "d" },
+  "Juan Leles": { xp: 3, mascota: "s" },
   "Esteban Marins": { xp: 1.5, mascota: "d" },
   "Bautista Medina": { xp: 1.5, mascota: "d" },
   "Aldana Montes": { xp: 3, mascota: "d" },
