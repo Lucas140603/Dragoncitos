@@ -1,6 +1,6 @@
 // Lista de estudiantes y su experiencia actual
 const alumnos = {
-  "Josefina Alves": { xp: 4.5, mascota: "d" },
+  "Josefina Alves": { xp: 4.5, mascota: "l" },
   "Yasmin Benítez": { xp: 3, mascota: "p" },
   "Julieta Cuadrado": { xp: 3, mascota: "d" },
   "Lucas Duarte": { xp: 0, mascota: "d" },
