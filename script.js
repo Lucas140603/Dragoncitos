@@ -54,7 +54,7 @@ function getImagenMascota(mascota, nivel) {
   else if (nivel >= 6) etapa = "joven";
   else if (nivel >= 3) etapa = "bebe";
   else etapa = "huevo";
-  return `${mascota}_${etapa}.png`;
+  return `img/${mascota}_${etapa}.png`;
 }
 
 // Mostrar todos los alumnos en la cuadrícula
