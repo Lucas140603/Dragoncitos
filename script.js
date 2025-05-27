@@ -27,7 +27,7 @@ const alumnos = {
   "Tiago Sosa": { xp: 1.5, mascota: "d" },
   "Julieta Torres": { xp: 0.5, mascota: "d" },
   "Fernando Trentini": { xp: 0, mascota: "d" },
-  "Sofia Viera": { xp: 3, mascota: "d" }
+  "Sofia Viera": { xp: 3, mascota: "a" }
 };
 
 // Función para calcular nivel con suma triangular (1 + 2 + 3 + ...)
