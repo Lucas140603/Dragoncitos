@@ -51,9 +51,9 @@ function progresoNivel(xp) {
 function getImagenMascota(mascota, nivel) {
   let etapa = "huevo";
   if (nivel >= 8) etapa = "adulto";
-  else if (nivel >= 7) etapa = "joven";
-  else if (nivel >= 5) etapa = "bebe";
-  else if (nivel >= 2) etapa = "huevo";
+  else if (nivel >= 6) etapa = "joven";
+  else if (nivel >= 3) etapa = "bebe";
+  else etapa = "huevo";
   return `${mascota}_${etapa}.png`;
 }
 
