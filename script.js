@@ -30,20 +30,30 @@ const alumnos = {
   "Sofia Viera": { xp: 2.5, mascota: "a" }
 };
 
-// Función para calcular nivel con suma triangular (1 + 2 + 3 + ...)
+// Niveles iniciales (XP acumulada total para alcanzar del nivel 1 al 5)
+const nivelesIniciales = [1, 3, 6, 10, 15];
+
+// Función para calcular nivel
 function calcularNivel(xp) {
-  let nivel = 0;
-  while (((nivel + 1) * (nivel + 2)) / 2 <= xp) {
-    nivel++;
+  for (let i = 0; i < nivelesIniciales.length; i++) {
+    if (xp < nivelesIniciales[i]) return i;
   }
-  return nivel;
+  return 5 + Math.floor((xp - 15) / 5);
 }
 
 // Función para calcular el progreso % dentro del nivel
 function progresoNivel(xp) {
-  let nivel = calcularNivel(xp);
-  let xpAnterior = (nivel * (nivel + 1)) / 2;
-  let xpSiguiente = ((nivel + 1) * (nivel + 2)) / 2;
+  const nivel = calcularNivel(xp);
+  let xpAnterior, xpSiguiente;
+
+  if (nivel <= 5) {
+    xpAnterior = nivel === 0 ? 0 : nivelesIniciales[nivel - 1];
+    xpSiguiente = nivelesIniciales[nivel];
+  } else {
+    xpAnterior = 15 + (nivel - 5 - 1) * 5;
+    xpSiguiente = xpAnterior + 5;
+  }
+
   return ((xp - xpAnterior) / (xpSiguiente - xpAnterior)) * 100;
 }
 
@@ -64,8 +74,18 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
   const nivel = calcularNivel(datos.xp);
   const progreso = progresoNivel(datos.xp);
 
-  const xpActualNivel = datos.xp - (nivel * (nivel + 1)) / 2;
-  const xpParaSiguienteNivel = ((nivel + 1) * (nivel + 2)) / 2 - (nivel * (nivel + 1)) / 2;
+  let xpAnterior, xpSiguiente;
+
+  if (nivel <= 5) {
+    xpAnterior = nivel === 0 ? 0 : nivelesIniciales[nivel - 1];
+    xpSiguiente = nivelesIniciales[nivel];
+  } else {
+    xpAnterior = 15 + (nivel - 5 - 1) * 5;
+    xpSiguiente = xpAnterior + 5;
+  }
+
+  const xpActualNivel = datos.xp - xpAnterior;
+  const xpParaSiguienteNivel = xpSiguiente - xpAnterior;
 
   const tarjeta = document.createElement("div");
   tarjeta.className = "dragon-card";
