@@ -20,7 +20,7 @@ const alumnos = {
   "Isa Pintos": { xp: 1, mascota: "d" },
   "Joaquin Rodriguez": { xp: 1.5, mascota: "d" },
   "Clara Romero": { xp: 1.5, mascota: "f" },
-  "Luana Santestevan": { xp: 3, mascota: "chim" },
+  "Luana Santestevan": { xp: 6, mascota: "chim" },
   "Julieta Santos": { xp: 6, mascota: "t" },
   "Guzman Silva": { xp: 0, mascota: "d" },
   "Axel Silva": { xp: 1, mascota: "d" },
