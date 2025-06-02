@@ -1,33 +1,33 @@
 // Lista de estudiantes y su experiencia actual
 const alumnos = {
-  "Josefina Alves": { xp: 6, mascota: "l" },
+  "Josefina Alves": { xp: 7.5, mascota: "l" },
   "Yasmin Benítez": { xp: 3.5, mascota: "p" },
   "Julieta Cuadrado": { xp: 4, mascota: "d" },
   "Lucas Duarte": { xp: 1.5, mascota: "d" },
-  "Mahia Echerán": { xp: 6, mascota: "o" },
+  "Mahia Echerán": { xp: 7.5, mascota: "o" },
   "Facundo Gómez": { xp: 2, mascota: "leo" },
-  "Uma Gonzalez": { xp: 4, mascota: "d" },
+  "Uma Gonzalez": { xp: 5.5, mascota: "d" },
   "Valentino Gordano": { xp: 4.5, mascota: "d" },
   "Juan Leles": { xp: 2.5, mascota: "s" },
   "Esteban Marins": { xp: 1, mascota: "d" },
   "Bautista Medina": { xp: 3, mascota: "tig" },
   "Aldana Montes": { xp: 4.5, mascota: "r" },
-  "Mateo Nievas": { xp: 3, mascota: "g" },
+  "Mateo Nievas": { xp: 4.5, mascota: "g" },
   "Tadeo Noble": { xp: 5.5, mascota: "d" },
   "Gastón Olhagaray": { xp: 1.5, mascota: "d" },
   "Anastasia Olivera": { xp: 6, mascota: "v" },
   "Evelin Pereira": { xp: 4, mascota: "u" },
-  "Isa Pintos": { xp: 2.5, mascota: "d" },
+  "Isa Pintos": { xp: 4, mascota: "d" },
   "Joaquin Rodriguez": { xp: 2, mascota: "d" },
-  "Clara Romero": { xp: 3, mascota: "f" },
-  "Luana Santestevan": { xp: 6, mascota: "chim" },
-  "Julieta Santos": { xp: 6, mascota: "t" },
+  "Clara Romero": { xp: 4.5, mascota: "f" },
+  "Luana Santestevan": { xp: 7.5, mascota: "chim" },
+  "Julieta Santos": { xp: 7.5, mascota: "t" },
   "Guzman Silva": { xp: 0, mascota: "d" },
   "Axel Silva": { xp: 2.5, mascota: "d" },
   "Tiago Sosa": { xp: 2.5, mascota: "d" },
   "Julieta Torres": { xp: 2, mascota: "d" },
   "Fernando Trentini": { xp: 0.5, mascota: "d" },
-  "Sofia Viera": { xp: 4, mascota: "a" }
+  "Sofia Viera": { xp: 5.5, mascota: "a" }
 };
 
 // Niveles iniciales (XP acumulada total para alcanzar del nivel 1 al 5)
