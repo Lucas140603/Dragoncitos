@@ -1,7 +1,7 @@
 // Lista de estudiantes y su experiencia actual
 const alumnos = {
   "Josefina Alves": { xp: 12, mascota: "l" },
-  "Yasmin Benítez": { xp: 7, mascota: "p" },
+  "Yasmin Benitez": { xp: 7, mascota: "p" },
   "Julieta Cuadrado": { xp: 5.5, mascota: "d" },
   "Lucas Duarte": { xp: 1.5, mascota: "d" },
   "Mahia Echerán": { xp: 13.5, mascota: "pan" },
