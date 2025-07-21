@@ -46,11 +46,11 @@ function progresoNivel(xp) {
   const nivel = calcularNivel(xp);
   let xpAnterior, xpSiguiente;
 
-  if (nivel <= 5) {
+  if (nivel < 5) {
     xpAnterior = nivel === 0 ? 0 : nivelesIniciales[nivel - 1];
     xpSiguiente = nivelesIniciales[nivel];
   } else {
-    xpAnterior = 15 + (nivel - 5 - 1) * 5;
+    xpAnterior = nivel === 5 ? 15 : 15 + (nivel - 5) * 5;
     xpSiguiente = xpAnterior + 5;
   }
 
@@ -76,11 +76,11 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
 
   let xpAnterior, xpSiguiente;
 
-  if (nivel <= 5) {
+  if (nivel < 5) {
     xpAnterior = nivel === 0 ? 0 : nivelesIniciales[nivel - 1];
     xpSiguiente = nivelesIniciales[nivel];
   } else {
-    xpAnterior = 15 + (nivel - 5 - 1) * 5;
+    xpAnterior = nivel === 5 ? 15 : 15 + (nivel - 5) * 5;
     xpSiguiente = xpAnterior + 5;
   }
 
