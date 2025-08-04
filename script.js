@@ -101,6 +101,55 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
     </div>
     <div>XP: ${xpActualNivel.toFixed(1)} / ${xpParaSiguienteNivel}</div>
   `;
+function mostrarEvolucion(mascota, nivel) {
+  // Crear fondo oscuro (opcional)
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.background = "rgba(0, 0, 0, 0.5)";
+  overlay.style.zIndex = 9998;
 
+  // Crear el modal
+  const modal = document.createElement("div");
+  modal.className = "modal";
+
+  const titulo = document.createElement("h2");
+  titulo.innerText = "Evolución de " + mascota;
+  modal.appendChild(titulo);
+
+  const etapas = ["huevo", "bebe", "joven", "adulto"];
+
+  etapas.forEach(etapa => {
+    let nivelNecesario = {
+      huevo: 0,
+      bebe: 3,
+      joven: 6,
+      adulto: 8
+    }[etapa];
+
+    if (nivel >= nivelNecesario) {
+      const img = document.createElement("img");
+      img.src = `${mascota}_${etapa}.png`;
+      img.alt = etapa;
+      modal.appendChild(img);
+    }
+  });
+
+  const cerrarBtn = document.createElement("button");
+  cerrarBtn.innerText = "Cerrar";
+  cerrarBtn.onclick = () => {
+    document.body.removeChild(modal);
+    document.body.removeChild(overlay);
+  };
+
+  modal.appendChild(cerrarBtn);
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(modal);
+}
+  
   grid.appendChild(tarjeta);
 });
