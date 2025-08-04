@@ -8,12 +8,12 @@ const alumnos = {
   "Facundo Gómez": { xp: 10, mascota: "leo" },
   "Uma Gonzalez": { xp: 14, mascota: "tuc" },
   "Valentino Gordano": { xp: 21, mascota: "vel" },
-  "Juan Leles": { xp: 22, mascota: "s" },
-  "Esteban Marins": { xp: 15, mascota: "d" },
+  "Juan Leles": { xp: 20, mascota: "s" },
+  "Esteban Marins": { xp: 14, mascota: "d" },
   "Bautista Medina": { xp: 18.5, mascota: "tig" },
   "Aldana Montes": { xp: 17, mascota: "r" },
   "Mateo Nievas": { xp: 22, mascota: "g" },
-  "Tadeo Noble": { xp: 22, mascota: "d" },
+  "Tadeo Noble": { xp: 23, mascota: "d" },
   "Gastón Olhagaray": { xp: 6, mascota: "d" },
   "Anastasia Olivera": { xp: 16, mascota: "v" },
   "Evelin Pereira": { xp: 14.5, mascota: "u" },
@@ -25,9 +25,9 @@ const alumnos = {
   "Guzman Silva": { xp: 0, mascota: "d" },
   "Axel Silva": { xp: 9, mascota: "d" },
   "Tiago Sosa": { xp: 12, mascota: "d" },
-  "Julieta Torres": { xp: 9.5, mascota: "d" },
+  "Julieta Torres": { xp: 8.5, mascota: "d" },
   "Fernando Trentini": { xp: 7.5, mascota: "d" },
-  "Sofia Viera": { xp: 20, mascota: "a" }
+  "Sofia Viera": { xp: 22, mascota: "a" }
 };
 
 // Niveles iniciales (XP acumulada total para alcanzar del nivel 1 al 5)
