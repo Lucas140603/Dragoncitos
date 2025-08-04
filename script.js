@@ -151,5 +151,11 @@ function mostrarEvolucion(mascota, nivel) {
   document.body.appendChild(modal);
 }
   
-  grid.appendChild(tarjeta);
+  // Agregar evento click a la imagen dentro de la tarjeta
+const img = tarjeta.querySelector("img");
+img.addEventListener("click", () => {
+  mostrarEvolucion(datos.mascota, nivel);
+});
+
+grid.appendChild(tarjeta);
 });
