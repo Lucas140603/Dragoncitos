@@ -3,7 +3,6 @@ const alumnos = {
   "Josefina Alves": { xp: 21, mascota: "l" },
   "Yasmin Benitez": { xp: 20, mascota: "p" },
   "Julieta Cuadrado": { xp: 12.5, mascota: "d" },
-  "Lucas Duarte": { xp: 3, mascota: "d" },
   "Mahia Echerán": { xp: 26, mascota: "pan" },
   "Facundo Gómez": { xp: 10, mascota: "leo" },
   "Uma Gonzalez": { xp: 14, mascota: "tuc" },
