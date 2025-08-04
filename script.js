@@ -67,6 +67,55 @@ function getImagenMascota(mascota, nivel) {
   return `img/${mascota}_${etapa}.png`;
 }
 
+// Función para mostrar evolución al hacer clic en la imagen
+function mostrarEvolucion(mascota, nivel) {
+  const overlay = document.createElement("div");
+  overlay.style.position = "fixed";
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.background = "rgba(0, 0, 0, 0.5)";
+  overlay.style.zIndex = 9998;
+
+  const modal = document.createElement("div");
+  modal.className = "modal";
+
+  const titulo = document.createElement("h2");
+  titulo.innerText = "Evolución de " + mascota;
+  modal.appendChild(titulo);
+
+  const etapas = ["huevo", "bebe", "joven", "adulto"];
+
+  etapas.forEach(etapa => {
+    let nivelNecesario = {
+      huevo: 0,
+      bebe: 3,
+      joven: 6,
+      adulto: 8
+    }[etapa];
+
+    if (nivel >= nivelNecesario) {
+      const img = document.createElement("img");
+      img.src = `img/${mascota}_${etapa}.png`;
+      img.alt = etapa;
+      modal.appendChild(img);
+    }
+  });
+
+  const cerrarBtn = document.createElement("button");
+  cerrarBtn.innerText = "Cerrar";
+  cerrarBtn.onclick = () => {
+    document.body.removeChild(modal);
+    document.body.removeChild(overlay);
+  };
+
+  modal.appendChild(cerrarBtn);
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(modal);
+}
+
 // Mostrar todos los alumnos en la cuadrícula
 const grid = document.getElementById("dragon-grid");
 
@@ -90,72 +139,22 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
   const tarjeta = document.createElement("div");
   tarjeta.className = "dragon-card";
 
-  const imagen = getImagenMascota(datos.mascota, nivel);
+  const imagenSrc = getImagenMascota(datos.mascota, nivel);
 
   tarjeta.innerHTML = `
     <div><strong>${nombre}</strong></div>
-    <img class="dragon-img" src="${imagen}" alt="Mascota">
+    <img class="dragon-img" src="${imagenSrc}" alt="Mascota">
     <div class="level">Nivel: ${nivel}</div>
     <div class="exp-bar">
       <div class="exp-fill" style="width: ${progreso}%;"></div>
     </div>
     <div>XP: ${xpActualNivel.toFixed(1)} / ${xpParaSiguienteNivel}</div>
   `;
-function mostrarEvolucion(mascota, nivel) {
-  // Crear fondo oscuro (opcional)
-  const overlay = document.createElement("div");
-  overlay.style.position = "fixed";
-  overlay.style.top = 0;
-  overlay.style.left = 0;
-  overlay.style.width = "100%";
-  overlay.style.height = "100%";
-  overlay.style.background = "rgba(0, 0, 0, 0.5)";
-  overlay.style.zIndex = 9998;
 
-  // Crear el modal
-  const modal = document.createElement("div");
-  modal.className = "modal";
-
-  const titulo = document.createElement("h2");
-  titulo.innerText = "Evolución de " + mascota;
-  modal.appendChild(titulo);
-
-  const etapas = ["huevo", "bebe", "joven", "adulto"];
-
-  etapas.forEach(etapa => {
-    let nivelNecesario = {
-      huevo: 0,
-      bebe: 3,
-      joven: 6,
-      adulto: 8
-    }[etapa];
-
-    if (nivel >= nivelNecesario) {
-      const img = document.createElement("img");
-      img.src = `${mascota}_${etapa}.png`;
-      img.alt = etapa;
-      modal.appendChild(img);
-    }
+  const img = tarjeta.querySelector("img");
+  img.addEventListener("click", () => {
+    mostrarEvolucion(datos.mascota, nivel);
   });
 
-  const cerrarBtn = document.createElement("button");
-  cerrarBtn.innerText = "Cerrar";
-  cerrarBtn.onclick = () => {
-    document.body.removeChild(modal);
-    document.body.removeChild(overlay);
-  };
-
-  modal.appendChild(cerrarBtn);
-
-  document.body.appendChild(overlay);
-  document.body.appendChild(modal);
-}
-  
-  // Agregar evento click a la imagen dentro de la tarjeta
-const img = tarjeta.querySelector("img");
-img.addEventListener("click", () => {
-  mostrarEvolucion(datos.mascota, nivel);
-});
-
-grid.appendChild(tarjeta);
+  grid.appendChild(tarjeta);
 });
