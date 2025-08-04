@@ -30,10 +30,8 @@ const alumnos = {
   "Sofia Viera": { xp: 22, mascota: "a" }
 };
 
-// Niveles iniciales (XP acumulada total para alcanzar del nivel 1 al 5)
 const nivelesIniciales = [1, 3, 6, 10, 15];
 
-// Función para calcular nivel
 function calcularNivel(xp) {
   for (let i = 0; i < nivelesIniciales.length; i++) {
     if (xp < nivelesIniciales[i]) return i;
@@ -41,7 +39,6 @@ function calcularNivel(xp) {
   return 5 + Math.floor((xp - 15) / 5);
 }
 
-// Función para calcular el progreso % dentro del nivel
 function progresoNivel(xp) {
   const nivel = calcularNivel(xp);
   let xpAnterior, xpSiguiente;
@@ -50,25 +47,22 @@ function progresoNivel(xp) {
     xpAnterior = nivel === 0 ? 0 : nivelesIniciales[nivel - 1];
     xpSiguiente = nivelesIniciales[nivel];
   } else {
-    xpAnterior = nivel === 5 ? 15 : 15 + (nivel - 5) * 5;
+    xpAnterior = 15 + (nivel - 5) * 5;
     xpSiguiente = xpAnterior + 5;
   }
 
   return ((xp - xpAnterior) / (xpSiguiente - xpAnterior)) * 100;
 }
 
-// Función para seleccionar imagen de mascota según tipo y nivel
 function getImagenMascota(mascota, nivel) {
   let etapa = "huevo";
   if (nivel >= 8) etapa = "adulto";
   else if (nivel >= 6) etapa = "joven";
   else if (nivel >= 3) etapa = "bebe";
-  else etapa = "huevo";
   return `img/${mascota}_${etapa}.png`;
 }
 
-// Función para mostrar evolución al hacer clic en la imagen
-function mostrarEvolucion(mascota, nivel) {
+function mostrarEvolucion(nombreAlumno, mascota, nivel) {
   const overlay = document.createElement("div");
   overlay.style.position = "fixed";
   overlay.style.top = 0;
@@ -85,16 +79,10 @@ function mostrarEvolucion(mascota, nivel) {
   titulo.textContent = `Evolución de la mascota de ${nombreAlumno}`;
 
   const etapas = ["huevo", "bebe", "joven", "adulto"];
+  const nivelesPorEtapa = { huevo: 0, bebe: 3, joven: 6, adulto: 8 };
 
   etapas.forEach(etapa => {
-    let nivelNecesario = {
-      huevo: 0,
-      bebe: 3,
-      joven: 6,
-      adulto: 8
-    }[etapa];
-
-    if (nivel >= nivelNecesario) {
+    if (nivel >= nivelesPorEtapa[etapa]) {
       const img = document.createElement("img");
       img.src = `img/${mascota}_${etapa}.png`;
       img.alt = etapa;
@@ -110,12 +98,10 @@ function mostrarEvolucion(mascota, nivel) {
   };
 
   modal.appendChild(cerrarBtn);
-
   document.body.appendChild(overlay);
   document.body.appendChild(modal);
 }
 
-// Mostrar todos los alumnos en la cuadrícula
 const grid = document.getElementById("dragon-grid");
 
 Object.entries(alumnos).forEach(([nombre, datos]) => {
@@ -128,7 +114,7 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
     xpAnterior = nivel === 0 ? 0 : nivelesIniciales[nivel - 1];
     xpSiguiente = nivelesIniciales[nivel];
   } else {
-    xpAnterior = nivel === 5 ? 15 : 15 + (nivel - 5) * 5;
+    xpAnterior = 15 + (nivel - 5) * 5;
     xpSiguiente = xpAnterior + 5;
   }
 
@@ -152,7 +138,7 @@ Object.entries(alumnos).forEach(([nombre, datos]) => {
 
   const img = tarjeta.querySelector("img");
   img.addEventListener("click", () => {
-    mostrarEvolucion(datos.mascota, nivel);
+    mostrarEvolucion(nombre, datos.mascota, nivel);
   });
 
   grid.appendChild(tarjeta);
