@@ -82,8 +82,7 @@ function mostrarEvolucion(mascota, nivel) {
   modal.className = "modal";
 
   const titulo = document.createElement("h2");
-  titulo.innerText = "Evolución de " + mascota;
-  modal.appendChild(titulo);
+  titulo.textContent = `Evolución de la mascota de ${nombreAlumno}`;
 
   const etapas = ["huevo", "bebe", "joven", "adulto"];
 
