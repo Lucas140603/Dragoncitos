@@ -88,8 +88,8 @@ body {
 }
 
 .modal img {
-  width: 80px;
-  height: 80px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   margin: 10px 8px;
   border-radius: 10px;
